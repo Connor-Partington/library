@@ -7,3 +7,9 @@ dialog::backdrop {
     background-color: #000000;
     opacity: 0.2;
 }
+
+.add-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
