@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+dialog::backdrop {
+    background-color: #000000;
+    opacity: 0.2;
+}
