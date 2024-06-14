@@ -15,19 +15,21 @@ closeDialogButton.addEventListener("click", (event) => {
 
 addBookDialogButton.addEventListener("click", (event) => {
     event.preventDefault();
-    addBookToLibrary(title.value, author.value);
+    addBookToLibrary(title.value, author.value, pages.value, isRead.value);
     addFormDialog.close();
 });
 
 const myLibrary = [];
 
-function Book(title, author) {
+function Book(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
 }
 
-function addBookToLibrary(title, author) {
-    const newBook = new Book(title, author);
+function addBookToLibrary(title, author, pages, isRead) {
+    const newBook = new Book(title, author, pages, isRead);
     myLibrary.push(newBook);
     displayBooksFromLibrary();
     console.log(myLibrary);
@@ -36,7 +38,7 @@ function addBookToLibrary(title, author) {
 function displayBooksFromLibrary() {
     let books = "";
     for (let x of myLibrary) {
-        books += x.title + " " + x.author + "<br>";
+        books += x.title + " " + x.author +  " " + x.pages +  " " + x.isRead +  "<br>";
     };
     bookTable.innerHTML = books;
 }
