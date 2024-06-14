@@ -3,9 +3,16 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-dialog::backdrop {
+::backdrop {
     background-color: #000000;
-    opacity: 0.2;
+    opacity: 0.1;
+}
+
+dialog {
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .add-book-form {
