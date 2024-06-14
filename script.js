@@ -1,3 +1,10 @@
+const addBookButton = document.querySelector(".add-book");
+const addFormDialog = document.querySelector(".addBookDialog");
+
+addBookButton.addEventListener("click", () => {
+    addFormDialog.showModal();
+});
+
 const myLibrary = [];
 
 function Book(title, author) {
