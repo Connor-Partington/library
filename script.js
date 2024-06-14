@@ -15,6 +15,13 @@ closeDialogButton.addEventListener("click", (event) => {
     bookForm.reset();
 });
 
+addFormDialog.addEventListener("keypress", (event) => {
+    if(event.key == "Escape") {
+        addFormDialog.close();
+        bookForm.reset();
+    };
+});
+
 addBookDialogButton.addEventListener("click", (event) => {
     event.preventDefault();
     addBookToLibrary(title.value, author.value, pages.value, isRead.value);
