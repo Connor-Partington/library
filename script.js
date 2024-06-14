@@ -1,8 +1,15 @@
 const addBookButton = document.querySelector(".add-book");
-const addFormDialog = document.querySelector(".addBookDialog");
+const addFormDialog = document.querySelector(".add-book-dialog");
+const closeDialogButton = document.querySelector(".close-dialog-button");
+const addBookDialogButton = document.querySelector(".add-book-dialog-button");
 
 addBookButton.addEventListener("click", () => {
     addFormDialog.showModal();
+});
+
+closeDialogButton.addEventListener("click", () => {
+    addFormDialog.preventDefault();
+    addFormDialog.close();
 });
 
 const myLibrary = [];
