@@ -1,14 +1,21 @@
 const addBookButton = document.querySelector(".add-book");
 const addFormDialog = document.querySelector(".add-book-dialog");
-const closeDialogButton = document.querySelector(".close-dialog-button");
-const addBookDialogButton = document.querySelector(".add-book-dialog-button");
+const closeDialogButton = addFormDialog.querySelector(".close-dialog-button");
+const addBookDialogButton = addFormDialog.querySelector(".add-book-dialog-button");
+const bookTable = document.getElementById("demo");
 
 addBookButton.addEventListener("click", () => {
     addFormDialog.showModal();
 });
 
-closeDialogButton.addEventListener("click", () => {
-    addFormDialog.preventDefault();
+closeDialogButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addFormDialog.close();
+});
+
+addBookDialogButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBookToLibrary(title.value, author.value);
     addFormDialog.close();
 });
 
@@ -19,24 +26,17 @@ function Book(title, author) {
     this.author = author;
 }
 
-function addBookToLibrary() {
-    myLibrary.push(book, book2);
+function addBookToLibrary(title, author) {
+    const newBook = new Book(title, author);
+    myLibrary.push(newBook);
+    displayBooksFromLibrary();
+    console.log(myLibrary);
 }
 
-let books = "";
-
 function displayBooksFromLibrary() {
+    let books = "";
     for (let x of myLibrary) {
         books += x.title + " " + x.author + "<br>";
     };
-    return books;
+    bookTable.innerHTML = books;
 }
-
-const book = new Book("Hobbit", "Connor");
-const book2 = new Book("Hobbit 2.0", "Connor");
-
-console.log(book);
-addBookToLibrary();
-displayBooksFromLibrary();
-console.log(myLibrary);
-document.getElementById("demo").innerHTML = books;
