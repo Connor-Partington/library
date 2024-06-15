@@ -47,9 +47,10 @@ function addBookToLibrary(title, author, pages, isRead) {
 
 function displayBooksFromLibrary() {
     let books = "";
-    for (let x of myLibrary) {
-        books += x.title + " " + x.author +  " " + x.pages +  " " + x.isRead +  "<br>";
-    };
+    for (const [index, x] of myLibrary.entries()) {
+        console.log(index, x);
+        books += index + " " + x.title + " " + x.author +  " " + x.pages +  " " + x.isRead +  "<br>";
+    }
     bookTable.innerHTML = books;
 }
 
@@ -59,4 +60,4 @@ function checkForBooks() {
     }
 }
 
-checkForBooks();
+checkForBooks()
