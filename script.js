@@ -52,3 +52,11 @@ function displayBooksFromLibrary() {
     };
     bookTable.innerHTML = books;
 }
+
+function checkForBooks() {
+    if(myLibrary == "") {
+        bookTable.innerHTML = "No books added yet";
+    }
+}
+
+checkForBooks();
