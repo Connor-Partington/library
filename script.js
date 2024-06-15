@@ -68,6 +68,9 @@ function displayBooksFromLibrary() {
         const bookCard = document.createElement('div');
         const readButton = document.createElement('button');
         readButton.classList.add('read-button');
+        readButton.addEventListener("click", () => {
+            toggleRead(index);
+        });
         if(x.read) {
             readButton.innerHTML = "Not read";
         } else {
@@ -83,7 +86,6 @@ function displayBooksFromLibrary() {
             <button class="remove-btn" onclick="removeBook(${index})">x</button>`;
         bookCard.append(readButton);
         bookTable.append(bookCard);
-        
     }
 }
 
@@ -91,6 +93,15 @@ function displayBooksFromLibrary() {
 function removeBook(index) {
 	myLibrary.splice(index, 1);
 	displayBooksFromLibrary();
+}
+
+function toggleRead(index) {
+    if(myLibrary[index].read) {
+        myLibrary[index].read = false;
+    } else {
+        myLibrary[index].read = true;
+    }
+    displayBooksFromLibrary();
 }
 
 // check for existing books and display an empty state if none
